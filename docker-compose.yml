@@ -1,0 +1,19 @@
+version: "3.3"
+
+services: 
+    backend:
+        container_name: backend
+        build: .
+        # command: tail -f /dev/null
+        command: bash -c "python manage.py runserver 0:8000"
+        ports: 
+            - 8000:8000
+        volumes: 
+            - .:/app
+        environment:
+            - PYTHONUNBUFFERED=0
+        networks:
+            - private
+
+networks:
+    private:
