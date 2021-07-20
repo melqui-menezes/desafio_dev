@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # PROJECT APP's
     "core",
+    # EXTERNAL LIBs
+    "bootstrap5",
 ]
 
 MIDDLEWARE = [

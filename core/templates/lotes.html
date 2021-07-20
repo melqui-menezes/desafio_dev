@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-md-12" style="margin-top:20px;">
+
+    <div class="row">
+        <h1>Lotes Processados</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Arquivo</th>
+                    <th scope="col">Data do Upload</th>
+                    <th scope="col">Valor total das transações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for arquivo in lotes %}
+                <tr>
+                    <td scope="col"><a href="{% url 'transacoes' arquivo.id %}">{{ arquivo.id }}</td>
+                    <td scope="col">{{ arquivo.arquivo }}</td>
+                    <td scope="col">{{ arquivo.dt_criado }}</td>
+                    <td scope="col">R$ {{ arquivo.total_lote }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </div>
+</div>
+{% endblock %}

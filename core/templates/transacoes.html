@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-md-12" style="margin-top:20px;">
+
+    <div class="row">
+        <h1>Detalhamento de Vendas</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Comprador</th>
+                    <th scope="col">Descricao</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Preço Unitário</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Valor da Venda</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venda in transacoes %}
+                <tr>
+                    <td scope="col">{{ venda.id }}</td>
+                    <td scope="col">{{ venda.comprador }}</td>
+                    <td scope="col">{{ venda.descricao }}</td>
+                    <td scope="col">{{ venda.fornecedor }}</td>
+                    <td scope="col">{{ venda.endereco }}</td>
+                    <td scope="col">R$ {{ venda.preco_und }}</td>
+                    <td scope="col">{{ venda.quantidade }}</td>
+                    <td scope="col">R$ {{ venda.total_venda }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </div>
+</div>
+{% endblock %}
